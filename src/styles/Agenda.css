@@ -1,0 +1,38 @@
+.agenda-corpo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+
+.agenda-partida {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.time-linha {
+  display: flex;
+  align-items: center;
+  font-size: 1.15rem;
+}
+
+.versus {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding-left: 38px;
+}
+
+.agenda-palpites {
+  min-width: 220px;
+}
+
+.linha-palpite {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.linha-palpite span:last-child {
+  font-weight: bold;
+}
