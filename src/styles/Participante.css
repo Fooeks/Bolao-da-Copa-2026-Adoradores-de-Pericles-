@@ -33,8 +33,24 @@
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 10px;
-  padding: 12px 18px;
-  min-width: 140px;
+  padding: 16px 24px;
+  min-width: 150px;
+  text-align: center;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.stat-card p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 .resumo-container {
@@ -51,13 +67,14 @@
   background: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 10px;
-  padding: 12px;
+  padding: 18px 20px;
   margin-bottom: 12px;
 }
 
 .grupo-titulo {
   margin-top: 30px;
-  padding-bottom: 5px;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
   border-bottom: 2px solid var(--green-primary);
   color: var(--green-primary);
 }
@@ -90,7 +107,7 @@
 .grupo-jogos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 16px;
 }
 
 @media (max-width: 768px) {
@@ -140,59 +157,47 @@
 .placar {
   background: #2a2a2a;
   color: var(--text-primary);
-
   padding: 3px 8px;
   border-radius: 8px;
-
   font-weight: 700;
 }
 
 .placar-palpite {
   background: #2a2a2a;
   color: var(--text-primary);
-
   padding: 3px 8px;
   border-radius: 8px;
-
   font-weight: 700;
 }
 
 .placar-exato {
   background: #16a34a;
   color: white;
-
   padding: 3px 8px;
   border-radius: 8px;
-
   font-weight: 700;
 }
 
 .placar-resultado {
   background: #ca8a04;
   color: white;
-
   padding: 3px 8px;
   border-radius: 8px;
-
   font-weight: 700;
 }
 
 .placar-erro {
   background: #dc2626;
   color: white;
-
   padding: 3px 8px;
   border-radius: 8px;
-
   font-weight: 700;
 }
 
 .placar-pendente {
   background: #2a2a2a;
   color: var(--text-primary);
-
   padding: 3px 8px;
   border-radius: 8px;
-
   font-weight: 700;
 }

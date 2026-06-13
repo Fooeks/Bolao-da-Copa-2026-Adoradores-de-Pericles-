@@ -7,9 +7,11 @@ function Home() {
     <main>
       <Header />
 
-      <JogosBanner />
-
       <Ranking />
+
+      <div style={{ marginTop: "30px" }}>
+        <JogosBanner />
+      </div>
     </main>
   );
 }
