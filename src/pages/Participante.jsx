@@ -172,12 +172,54 @@ function Participante() {
         )}
       </div>
 
-      <h2>Resumo dos Palpites</h2>
-
+      
       <div className="resumo-container">
-        <div className="resumo-coluna">
+        <div className="resumo-linha">
+          <h3>Próximos Jogos</h3>
+
+          <div className="resumo-colunas">
+          {proximosJogos.map(partida => {
+            const casa = getSelecao(partida.casaId);
+            const fora = getSelecao(partida.foraId);
+
+            const palpitePartida = palpites.find(
+              p => p.partidaId === partida.id
+            );
+            const palpite = palpitePartida?.[participante.slug];
+
+            return (
+              <div key={partida.id} className="partida-card">
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
+                  <p>
+                    <img src={`/flags/${casa.sigla}.png`} alt={casa.nome} width="20" style={{ verticalAlign: "middle", marginRight: "5px" }} />
+                    {casa.nome}{" x "}{fora.nome}
+                    <img src={`/flags/${fora.sigla}.png`} alt={fora.nome} width="20" style={{ verticalAlign: "middle", marginLeft: "5px" }} />
+                  </p>
+                  <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", whiteSpace: "nowrap" }}>
+                    {partida.horario}
+                  </span>
+                </div>
+
+                <div className="linha-palpite linha-palpite-destaque">
+                  <span>
+                    Seu palpite:{" "}
+                    <span className="placar-valor">
+                      {!palpite || palpite[0] === null || palpite[1] === null
+                        ? "-"
+                        : `${palpite[0]} x ${palpite[1]}`}
+                    </span>
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+          </div>
+        </div>
+
+        <div className="resumo-linha">
           <h3>Últimos Resultados</h3>
 
+          <div className="resumo-colunas">
           {ultimosResultados.map(partida => {
             const casa = getSelecao(partida.casaId);
             const fora = getSelecao(partida.foraId);
@@ -196,97 +238,54 @@ function Participante() {
                   )
                 : null;
 
+            let cor = "var(--text-secondary)";
+            if (pontos === 3) cor = "#22c55e";
+            else if (pontos === 1) cor = "#eab308";
+            else if (pontos === 0) cor = "#ef4444";
+
             return (
               <div key={partida.id} className="partida-card">
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
                   <p>
-                    <img src={`/flags/${casa.sigla}.png`} alt={casa.nome} width="24" style={{ verticalAlign: "middle", marginRight: "6px" }} />
+                    <img src={`/flags/${casa.sigla}.png`} alt={casa.nome} width="20" style={{ verticalAlign: "middle", marginRight: "5px" }} />
                     {casa.nome}{" "}
                     <span className="placar">{partida.golsCasa} x {partida.golsFora}</span>
                     {" "}{fora.nome}
-                    <img src={`/flags/${fora.sigla}.png`} alt={fora.nome} width="24" style={{ verticalAlign: "middle", marginLeft: "6px" }} />
+                    <img src={`/flags/${fora.sigla}.png`} alt={fora.nome} width="20" style={{ verticalAlign: "middle", marginLeft: "5px" }} />
                   </p>
-                  <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}>
-                    {partida.data} - {partida.horario}
-                  </p>
+                  <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", whiteSpace: "nowrap" }}>
+                    {partida.horario}
+                  </span>
                 </div>
 
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "24px" }}>
-                  <p>
-                    <>
-                      Palpite:{" "}
-                      <span className={
-                        pontos === 3 ? "placar-exato"
-                        : pontos === 1 ? "placar-resultado"
-                        : pontos === 0 ? "placar-erro"
-                        : "placar-pendente"
-                      }>
-                        {palpite[0]} x {palpite[1]}
-                      </span>
-                    </>
-                  </p>
-                  <p>
-                    {pontos === 3 && "🟢 +3"}
-                    {pontos === 1 && "🟡 +1"}
-                    {pontos === 0 && "🔴 0"}
-                  </p>
+                <div className="linha-palpite linha-palpite-destaque">
+                  <span>
+                    Seu palpite:{" "}
+                    <span className="placar-valor" style={{ color: cor }}>
+                      {!palpite || palpite[0] === null || palpite[1] === null
+                        ? "-"
+                        : `${palpite[0]} x ${palpite[1]}`}
+                    </span>
+                  </span>
+                  {pontos !== null && (
+                    <span className="placar-valor" style={{ color: cor }}>
+                      {pontos === 3 ? "+3" : pontos === 1 ? "+1" : "+0"}
+                    </span>
+                  )}
                 </div>
               </div>
             );
           })}
-        </div>
-
-        <div className="resumo-coluna">
-          <h3>Próximos Jogos</h3>
-
-          {proximosJogos.map(partida => {
-            const casa = getSelecao(partida.casaId);
-            const fora = getSelecao(partida.foraId);
-
-            const palpitePartida = palpites.find(
-              p => p.partidaId === partida.id
-            );
-            const palpite = palpitePartida?.[participante.slug];
-
-            return (
-              <div key={partida.id} className="partida-card">
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px" }}>
-                  <p>
-                    <img src={`/flags/${casa.sigla}.png`} alt={casa.nome} width="24" style={{ verticalAlign: "middle", marginRight: "6px" }} />
-                    {casa.nome}{" x "}{fora.nome}
-                    <img src={`/flags/${fora.sigla}.png`} alt={fora.nome} width="24" style={{ verticalAlign: "middle", marginLeft: "6px" }} />
-                  </p>
-                  <p style={{ fontSize: "0.9rem", color: "var(--text-secondary)" }}>
-                    {partida.data} - {partida.horario}
-                  </p>
-                </div>
-
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "24px" }}>
-                  <p>
-                    {!palpite || palpite[0] === null || palpite[1] === null ? (
-                      "Sem palpite"
-                    ) : (
-                      <>
-                        Palpite:{" "}
-                        <span className="placar-palpite">
-                          {palpite[0]} x {palpite[1]}
-                        </span>
-                      </>
-                    )}
-                  </p>
-                  <p>⏳</p>
-                </div>
-              </div>
-            );
-          })}
+          </div>
         </div>
       </div>
 
       <h2>Todos os Palpites</h2>
 
+      <div className="grupos-container">
       {Object.keys(partidasPorGrupo).map(grupo => (
-        <div key={grupo}>
-          <h3 className="grupo-titulo">Grupo {grupo}</h3>
+        <div key={grupo} className="grupo-secao">
+          <h3 className="grupo-titulo-banner">Grupo {grupo}</h3>
 
           <div className="grupo-jogos">
             {partidasPorGrupo[grupo].map(partida => {
@@ -312,9 +311,9 @@ function Participante() {
 
               return (
                 <div key={partida.id} className="partida-card">
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
                     <p>
-                      <img src={`/flags/${casa.sigla}.png`} alt={casa.nome} width="24" style={{ verticalAlign: "middle", marginRight: "6px" }} />
+                      <img src={`/flags/${casa.sigla}.png`} alt={casa.nome} width="20" style={{ verticalAlign: "middle", marginRight: "5px" }} />
                       {casa.nome}
                       {finalizada ? (
                         <> {" "}<span className="placar">{partida.golsCasa} x {partida.golsFora}</span>{" "}</>
@@ -322,39 +321,41 @@ function Participante() {
                         " x "
                       )}
                       {fora.nome}
-                      <img src={`/flags/${fora.sigla}.png`} alt={fora.nome} width="24" style={{ verticalAlign: "middle", marginLeft: "6px" }} />
+                      <img src={`/flags/${fora.sigla}.png`} alt={fora.nome} width="20" style={{ verticalAlign: "middle", marginLeft: "5px" }} />
                     </p>
-                    <p style={{ fontSize: "0.9rem", color: "#666" }}>
-                      {partida.data} - {partida.horario}
-                    </p>
+                    <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", whiteSpace: "nowrap" }}>
+                      {partida.horario}
+                    </span>
                   </div>
 
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px", marginTop: "24px" }}>
-                    {!palpite || palpite[0] === null || palpite[1] === null ? (
-                      <p>Sem palpite enviado</p>
-                    ) : (
-                      <p>
-                        <>
-                          Palpite:{" "}
-                          <span className={
-                            pontos === 3 ? "placar-exato"
-                            : pontos === 1 ? "placar-resultado"
-                            : pontos === 0 ? "placar-erro"
-                            : "placar-pendente"
-                          }>
-                            {palpite[0]} x {palpite[1]}
-                          </span>
-                        </>
-                      </p>
-                    )}
-                    {finalizada && pontos !== null ? (
-                      <p>
-                        {pontos === 3 && "🟢 +3"}
-                        {pontos === 1 && "🟡 +1"}
-                        {pontos === 0 && "🔴 0"}
-                      </p>
-                    ) : (
-                      <p>⏳</p>
+                  <div className="linha-palpite linha-palpite-destaque">
+                    <span>
+                      Seu palpite:{" "}
+                      {!palpite || palpite[0] === null || palpite[1] === null ? (
+                        <span className="placar-valor">{finalizada ? "-" : "⏳"}</span>
+                      ) : (
+                        <span className={
+                          "placar-valor " + (
+                            pontos === 3 ? "texto-exato"
+                            : pontos === 1 ? "texto-resultado"
+                            : pontos === 0 ? "texto-erro"
+                            : ""
+                          )
+                        }>
+                          {palpite[0]} x {palpite[1]}
+                        </span>
+                      )}
+                    </span>
+                    {finalizada && pontos !== null && (
+                      <span className={
+                        "placar-valor " + (
+                          pontos === 3 ? "texto-exato"
+                          : pontos === 1 ? "texto-resultado"
+                          : "texto-erro"
+                        )
+                      }>
+                        {pontos === 3 ? "+3" : pontos === 1 ? "+1" : "+0"}
+                      </span>
                     )}
                   </div>
                 </div>
@@ -363,6 +364,7 @@ function Participante() {
           </div>
         </div>
       ))}
+      </div>
 
       {/* =================== MATA-MATA =================== */}
       <h2 style={{ marginTop: "40px" }}>Mata-Mata</h2>

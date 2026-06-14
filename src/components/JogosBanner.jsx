@@ -224,22 +224,26 @@ function JogosBanner() {
       onClick={() => navigate("/agenda")}
       style={{ cursor: "pointer" }}
     >
-      <div className="coluna">
-        <h3>Últimos Resultados</h3>
-        {ultimosResultados.length === 0 ? (
-          <p>Nenhum resultado disponível</p>
-        ) : (
-          ultimosResultados.map(p => renderPartidaCard(p, true))
-        )}
+      <div className="linha-jogos">
+        <h3>Próximos Jogos</h3>
+        <div className="colunas-jogos">
+          {proximosJogos.length === 0 ? (
+            <p>Nenhum jogo agendado</p>
+          ) : (
+            proximosJogos.map(p => renderPartidaCard(p, false))
+          )}
+        </div>
       </div>
 
-      <div className="coluna">
-        <h3>Próximos Jogos</h3>
-        {proximosJogos.length === 0 ? (
-          <p>Nenhum jogo agendado</p>
-        ) : (
-          proximosJogos.map(p => renderPartidaCard(p, false))
-        )}
+      <div className="linha-jogos">
+        <h3>Últimos Resultados</h3>
+        <div className="colunas-jogos">
+          {ultimosResultados.length === 0 ? (
+            <p>Nenhum resultado disponível</p>
+          ) : (
+            ultimosResultados.map(p => renderPartidaCard(p, true))
+          )}
+        </div>
       </div>
     </section>
   );
