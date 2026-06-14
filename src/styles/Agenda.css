@@ -12,23 +12,48 @@
   gap: 20px;
 }
 
-.agenda-partida {
+.agenda-confronto {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 8px;
+  flex: 1.4;
+}
+
+.agenda-time {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  flex: 1;
-}
-
-.time-linha {
-  display: flex;
   align-items: center;
-  font-size: 1.1rem;
+  gap: 8px;
+  text-align: center;
+  flex: 1;
+  min-width: 0;
+  max-width: 110px;
 }
 
-.versus {
+.agenda-time img {
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.agenda-time strong {
+  font-size: 0.95rem;
+}
+
+.agenda-versus {
   font-size: 1.3rem;
   font-weight: bold;
-  padding-left: 38px;
+  min-width: 50px;
+  text-align: center;
+  color: var(--text-secondary);
+  padding-top: 22px;
+}
+
+.agenda-versus .placar {
+  font-size: 1.3rem;
+  color: var(--green-primary);
+  background: transparent;
+  padding: 0;
 }
 
 .agenda-palpites {

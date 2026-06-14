@@ -93,6 +93,11 @@
   padding: 24px 26px;
   margin-bottom: 12px;
   font-size: 1.05rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 130px;
 }
 
 .grupo-titulo {
@@ -152,8 +157,7 @@
 
 .linha-palpite-destaque {
   border-top: 1px solid var(--border-color);
-  margin-top: 14px;
-  padding-top: 12px;
+  padding-top: 16px;
   justify-content: space-between;
   align-items: center;
   gap: 10px;

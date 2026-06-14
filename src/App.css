@@ -102,13 +102,112 @@ header h2 {
   color: var(--green-primary);
 }
 
-.participante {
+.ranking-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
-  padding: 10px 0;
+  padding: 12px 14px;
+  margin-bottom: 10px;
 
-  border-bottom: 1px solid var(--border-color);
+  background: #121212;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+
+  cursor: pointer;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.ranking-item:hover {
+  border-color: var(--green-primary);
+  transform: translateY(-1px);
+}
+
+.ranking-item--ouro {
+  border-color: rgba(212, 175, 55, 0.4);
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.16), #121212 75%);
+}
+
+.ranking-item--ouro .ranking-item__posicao {
+  color: #ffd54f;
+}
+
+.ranking-item--prata {
+  border-color: rgba(192, 199, 206, 0.35);
+  background: linear-gradient(90deg, rgba(192, 199, 206, 0.14), #121212 75%);
+}
+
+.ranking-item--prata .ranking-item__posicao {
+  color: #d8dee4;
+}
+
+.ranking-item--bronze {
+  border-color: rgba(185, 122, 74, 0.4);
+  background: linear-gradient(90deg, rgba(185, 122, 74, 0.16), #121212 75%);
+}
+
+.ranking-item--bronze .ranking-item__posicao {
+  color: #e0a371;
+}
+
+.ranking-item__info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ranking-item__posicao {
+  min-width: 28px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.ranking-item__avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.ranking-item__nome {
+  font-weight: 600;
+}
+
+.ranking-item__stats {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.ranking-item__aproveitamento {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.ranking-item__pontos {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+
+  min-width: 64px;
+  justify-content: center;
+
+  padding: 6px 12px;
+  border-radius: 8px;
+
+  background: rgba(34, 197, 94, 0.12);
+  color: var(--green-primary);
+
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.ranking-item__pontos small {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--green-primary);
+  opacity: 0.8;
 }
 
 .botao-voltar {
@@ -118,8 +217,4 @@ header h2 {
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-}
-
-.botao-voltar:hover {
-  background: var(--green-hover);
 }

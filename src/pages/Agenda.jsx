@@ -173,13 +173,13 @@ function Agenda() {
 
         {/* Times e placar */}
         <div className="agenda-corpo">
-          <div className="agenda-partida">
-            <div className="time-linha">
-              <img src={`/flags/${casa.sigla}.png`} alt={casa.nome} width="28" style={{ marginRight: "10px" }} />
+          <div className="agenda-confronto">
+            <div className="agenda-time">
+              <img src={`/flags/${casa.sigla}.png`} alt={casa.nome} width="32" />
               <strong>{casa.nome}</strong>
             </div>
 
-            <div className="versus">
+            <div className="agenda-versus">
               {finalizada ? (
                 <span className="placar">
                   {partida.golsCasa} x {partida.golsFora}
@@ -189,8 +189,8 @@ function Agenda() {
               )}
             </div>
 
-            <div className="time-linha">
-              <img src={`/flags/${fora.sigla}.png`} alt={fora.nome} width="28" style={{ marginRight: "10px" }} />
+            <div className="agenda-time">
+              <img src={`/flags/${fora.sigla}.png`} alt={fora.nome} width="32" />
               <strong>{fora.nome}</strong>
             </div>
           </div>

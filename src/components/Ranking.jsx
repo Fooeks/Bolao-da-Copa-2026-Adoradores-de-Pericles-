@@ -41,51 +41,68 @@ function Ranking() {
       if (b.acertosExatos !== a.acertosExatos) return b.acertosExatos - a.acertosExatos;
       // 3º critério: mais pontos no mata-mata
       return b.pontosMataMata - a.pontosMataMata;
-    });
+    })
+    // Atribui a colocação considerando empates em todos os critérios de desempate
+    .reduce((acc, participante, index) => {
+      if (index === 0) {
+        acc.push({ ...participante, posicao: 1 });
+        return acc;
+      }
+
+      const anterior = acc[index - 1];
+      const empatado =
+        participante.pontos === anterior.pontos &&
+        participante.acertosExatos === anterior.acertosExatos &&
+        participante.pontosMataMata === anterior.pontosMataMata;
+
+      acc.push({
+        ...participante,
+        posicao: empatado ? anterior.posicao : index + 1
+      });
+      return acc;
+    }, []);
 
   return (
     <section className="ranking">
       <h2>Ranking</h2>
 
-      {rankingCalculado.map((participante, index) => (
+      {rankingCalculado.map((participante) => (
         <div
           key={participante.id}
-          className="participante"
+          className={`ranking-item ${
+            participante.posicao === 1
+              ? "ranking-item--ouro"
+              : participante.posicao === 2
+              ? "ranking-item--prata"
+              : participante.posicao === 3
+              ? "ranking-item--bronze"
+              : ""
+          }`}
           onClick={() => navigate(`/participante/${participante.id}`)}
-          style={{
-            cursor: "pointer",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "12px"
-          }}
         >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10px"
-            }}
-          >
+          <div className="ranking-item__info">
+            <span className="ranking-item__posicao">{participante.posicao}º</span>
+
             <img
               src={participante.avatar}
               alt={participante.nome}
+              className="ranking-item__avatar"
               width="40"
               height="40"
-              style={{
-                borderRadius: "50%",
-                objectFit: "cover"
-              }}
             />
 
-            <span>
-              {index + 1}º {participante.nome}
-            </span>
+            <span className="ranking-item__nome">{participante.nome}</span>
           </div>
 
-          <span>
-            {participante.pontos} pts | {participante.aproveitamento}%
-          </span>
+          <div className="ranking-item__stats">
+            <span className="ranking-item__aproveitamento">
+              {participante.aproveitamento}%
+            </span>
+            <span className="ranking-item__pontos">
+              {participante.pontos}
+              <small>pts</small>
+            </span>
+          </div>
         </div>
       ))}
     </section>
