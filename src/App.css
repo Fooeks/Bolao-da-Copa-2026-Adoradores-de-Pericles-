@@ -124,7 +124,7 @@ header h2 {
 }
 
 .ranking-item--ouro {
-  border-color: rgba(212, 175, 55, 0.4);
+  border-color: var(--border-color);
   background: linear-gradient(90deg, rgba(212, 175, 55, 0.16), #121212 75%);
 }
 
@@ -133,7 +133,7 @@ header h2 {
 }
 
 .ranking-item--prata {
-  border-color: rgba(192, 199, 206, 0.35);
+  border-color: var(--border-color);
   background: linear-gradient(90deg, rgba(192, 199, 206, 0.14), #121212 75%);
 }
 
@@ -142,7 +142,7 @@ header h2 {
 }
 
 .ranking-item--bronze {
-  border-color: rgba(185, 122, 74, 0.4);
+  border-color: var(--border-color);
   background: linear-gradient(90deg, rgba(185, 122, 74, 0.16), #121212 75%);
 }
 
