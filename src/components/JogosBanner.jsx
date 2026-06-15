@@ -194,13 +194,13 @@ function JogosBanner() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
           <p>
             <img src={`/flags/${casa.sigla}.png`} alt={casa.nome} width="20" style={{ verticalAlign: "middle", marginRight: "5px" }} />
-            {casa.nome}
+            <strong>{casa.nome}</strong>
             {finalizada ? (
               <> {" "}<span className="placar">{partida.golsCasa} x {partida.golsFora}</span>{" "}</>
             ) : (
               " x "
             )}
-            {fora.nome}
+            <strong>{fora.nome}</strong>
             <img src={`/flags/${fora.sigla}.png`} alt={fora.nome} width="20" style={{ verticalAlign: "middle", marginLeft: "5px" }} />
           </p>
           <span style={{ fontSize: "0.8rem", color: "var(--text-secondary)", whiteSpace: "nowrap" }}>

@@ -34,7 +34,7 @@ function Agenda() {
     .sort((a, b) => {
       const dtA = new Date(`${a.data}T${a.horario}`);
       const dtB = new Date(`${b.data}T${b.horario}`);
-      return dtB - dtA;
+      return dtA - dtB;
     });
 
   const datasPendentes = [...new Set(pendentes.map(p => p.data))];

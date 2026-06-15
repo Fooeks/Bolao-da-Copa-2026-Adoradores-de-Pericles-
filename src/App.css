@@ -52,6 +52,19 @@ header h2 {
   color: var(--text-secondary);
 }
 
+.header-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.header-mascote {
+  height: 56px;
+  width: auto;
+  border-radius: 8px;
+}
+
 .jogos-banner {
   display: flex;
   flex-direction: column;

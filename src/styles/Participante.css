@@ -151,7 +151,7 @@
   font-size: 0.95rem;
 }
 
-.linha-palpite span:last-child {
+.linha-palpite:not(.linha-palpite-destaque) span:last-child {
   font-weight: bold;
 }
 
@@ -165,7 +165,11 @@
 }
 
 .linha-palpite-destaque .placar-valor {
-  font-weight: bold;
+  font-weight: 700;
+}
+
+.linha-palpite-destaque .placar-valor--pendente {
+  color: var(--text-primary);
 }
 
 .grupo-jogos {
@@ -237,7 +241,7 @@
 .texto-exato,
 .texto-resultado,
 .texto-erro {
-  font-weight: bold;
+  font-weight: normal;
 }
 
 .texto-exato {
