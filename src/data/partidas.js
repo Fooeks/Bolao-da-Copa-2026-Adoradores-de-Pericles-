@@ -193,8 +193,8 @@ export const partidas = [
     casaId: 19,
     foraId: 20,
 
-    golsCasa: null,
-    golsFora: null
+    golsCasa: 1,
+    golsFora: 0
   },
   
   {
