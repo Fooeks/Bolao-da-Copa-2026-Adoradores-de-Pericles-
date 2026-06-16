@@ -42,6 +42,7 @@ export const palpitesMataMata = [
     final: [29,9],
     campeaoId: 9
   },
+  
   {
   participante: "leo",
 
