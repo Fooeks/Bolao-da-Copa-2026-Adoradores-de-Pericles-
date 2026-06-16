@@ -22,5 +22,11 @@ export const participantes = [
     nome: "Bruno",
     slug: "bruno",
     avatar: "/avatares/bruno.png"
+  },
+  {
+    id: 5,
+    nome: "Léo",
+    slug: "leo",
+    avatar: "/avatares/leo.png"
   }
 ];
