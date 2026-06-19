@@ -506,7 +506,7 @@ export const palpites = [
     acordeh: [4,0],
     guizao: [2,0],
     bruno: [2,0],
-    leo: [1,3]
+    leo: [3,0]
   },
 
   {
@@ -516,7 +516,7 @@ export const palpites = [
     acordeh: [0,2],
     guizao: [0,3],
     bruno: [1,3],
-    leo: [3,0]
+    leo: [1,3]
   },
 
   {
@@ -546,7 +546,7 @@ export const palpites = [
     acordeh: [0,2],
     guizao: [0,1],
     bruno: [0,2],
-    leo: [1,3]
+    leo: [1,2]
   },
 
   {
@@ -556,7 +556,7 @@ export const palpites = [
     acordeh: [0,3],
     guizao: [0,2],
     bruno: [0,3],
-    leo: [1,2]
+    leo: [1,3]
   },
 
   {
@@ -586,7 +586,7 @@ export const palpites = [
     acordeh: [0,2],
     guizao: [1,0],
     bruno: [2,2],
-    leo: [1,0]
+    leo: [2,1]
   },
 
   {
@@ -596,7 +596,7 @@ export const palpites = [
     acordeh: [2,2],
     guizao: [3,1],
     bruno: [1,1],
-    leo: [2,1]
+    leo: [1,0]
   },
 
   {
@@ -606,7 +606,7 @@ export const palpites = [
     acordeh: [1,4],
     guizao: [2,3],
     bruno: [1,0],
-    leo: [3,0]
+    leo: [1,2]
   },
 
   {
@@ -616,7 +616,7 @@ export const palpites = [
     acordeh: [1,0],
     guizao: [1,0],
     bruno: [2,0],
-    leo: [1,2]
+    leo: [3,0]
   },
 
   {
@@ -626,7 +626,7 @@ export const palpites = [
     acordeh: [0,1],
     guizao: [0,0],
     bruno: [0,0],
-    leo: [1,3]
+    leo: [1,2]
   },
 
   {
@@ -636,7 +636,7 @@ export const palpites = [
     acordeh: [2,4],
     guizao: [2,1],
     bruno: [1,3],
-    leo: [1,2]
+    leo: [1,3]
   },
 
   {
@@ -706,7 +706,7 @@ export const palpites = [
     acordeh: [1,2],
     guizao: [1,1],
     bruno: [0,0],
-    leo: [2,4]
+    leo: [1,2]
   },
 
   {
@@ -716,6 +716,6 @@ export const palpites = [
     acordeh: [0,4],
     guizao: [0,3],
     bruno: [1,3],
-    leo: [1,2]
+    leo: [2,4]
   },
 ];
