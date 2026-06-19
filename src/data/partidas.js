@@ -535,8 +535,8 @@ export const partidas = [
     casaId: 12,
     foraId: 10,
 
-    golsCasa: null,
-    golsFora: null
+    golsCasa: 0,
+    golsFora: 1
   },
   
   {
@@ -548,7 +548,7 @@ export const partidas = [
     grupo: "C",
 
     data: "2026-06-19",
-    horario: "21:00",
+    horario: "21:30",
 
     casaId: 9,
     foraId: 11,
