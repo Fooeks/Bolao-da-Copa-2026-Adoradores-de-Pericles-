@@ -838,8 +838,8 @@ export const partidas = [
     data: "2026-06-23",
     horario: "20:00",
 
-    casaId: 46,
-    foraId: 48,
+    casaId: 48,
+    foraId: 46,
 
     golsCasa: null,
     golsFora: null
