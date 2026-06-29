@@ -32,8 +32,8 @@ export const partidasMataMata = [
     horario: "17:30",
     casaId: 17,
     foraId: 14,
-    golsCasa: 3,
-    golsFora: 4
+    golsCasa: 4,
+    golsFora: 5
   },
   {
     id: 76,
