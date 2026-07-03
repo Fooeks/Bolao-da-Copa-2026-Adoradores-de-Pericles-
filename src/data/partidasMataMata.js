@@ -153,8 +153,8 @@ export const partidasMataMata = [
     horario: "15:00",
     casaId: 15,
     foraId: 26,
-    golsCasa: null,
-    golsFora: null
+    golsCasa: 3,
+    golsFora: 5
   },
   {
     id: 87,
@@ -255,7 +255,7 @@ export const partidasMataMata = [
     data: "2026-07-07",
     horario: "13:00",
     casaId: null,
-    foraId: null,
+    foraId: 26,
     golsCasa: null,
     golsFora: null
   },
